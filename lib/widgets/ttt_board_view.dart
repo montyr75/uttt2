@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:animator/animator.dart';
+import 'package:flutter_fadein/flutter_fadein.dart';
 
 import '../models/ttt_board.dart' show CellType;
 import 'grid_layout.dart';
@@ -42,20 +42,15 @@ class _TTTBoardViewState extends State<TTTBoardView> {
       index: index,
       type: widget.boardData[index],
       onSelected: _handleCellSelected,
-      available: isCellAvailable(index)
+      available: isCellAvailable(index),
     );
 
     if (_lastSelectedIndex == index) {
       _lastSelectedIndex = null;
 
-      return Animator(
-        repeats: 1,
-        builder: (Animation anim) {
-          return FadeTransition(
-            opacity: anim,
-            child: cellView,
-          );
-        },
+      return FadeIn(
+        duration: const Duration(milliseconds: 500),
+        child: cellView,
       );
     }
 

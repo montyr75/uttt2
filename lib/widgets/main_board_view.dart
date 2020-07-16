@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:animator/animator.dart';
+import 'package:flutter_fadein/flutter_fadein.dart';
 
 import '../models/ttt_board.dart' show CellType;
 import '../state/game_state.dart';
@@ -53,14 +53,9 @@ class _MainBoardViewState extends State<MainBoardView> {
       if (_lastSelectedIndex == index) {
         _lastSelectedIndex = null;
 
-        content = Animator(
-          repeats: 1,
-          builder: (Animation anim) {
-            return FadeTransition(
-              opacity: anim,
-              child: box,
-            );
-          },
+        content = FadeIn(
+          duration: const Duration(milliseconds: 500),
+          child: box,
         );
       }
       else {

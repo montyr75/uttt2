@@ -69,6 +69,6 @@ class GameState with ChangeNotifier {
     notifyListeners();
   }
 
-  List<CellType> get mainBoardData => _mainBoard.board;
-  List<CellType> getSubBoardData(int index) => _subBoards[index].board;
+  List<CellType> get mainBoardData => _mainBoard.grid;
+  List<CellType> getSubBoardData(int index) => _subBoards[index].grid;
 }

@@ -24,7 +24,7 @@ class UTTT extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       home: ChangeNotifierProvider<GameState>(
-          builder: (context) => GameState(),
+          create: (context) => GameState(),
           child: HomePage(title: 'Ultimate Tic-Tac-Toe')
       ),
     );
